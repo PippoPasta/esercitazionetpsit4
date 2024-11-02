@@ -1,0 +1,18 @@
+#btn{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 25%;
+}
+
+
+.greenTheme{
+    background-color: lightgreen;
+}
+
+.redTheme{
+    background-color: red;
+}
+
+.yellowTheme{
+    background-color: yellow;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <input id="btn" class="redTheme" type="button" name="riflesso" value="Cliccami quando divento verde!">
+          <p id="result"></p>
+        </div>
+      </div>
+    <script>
+        function getRandomIntegerV1(valoreMinimo, valoreMassimo) {
+            // Funzione che restituisce un numero casuale intero compreso tra valori minimo e massimo passati come argomenti.
+            // Utilizza la tecnica di aggiustamento valore massimo con restituzione finale della sola parte intera.
+            let rand = valoreMinimo + Math.random() * (valoreMassimo - valoreMinimo + 1);
+            return Math.floor(rand);
+        }
+        let tempoRandomizzato = getRandomIntegerV1(1000, 5000)
+        let tempoMeta = tempoRandomizzato / 2
+        let tempoquasiCompleto = tempoRandomizzato * 0.99
+        const bottone = document.getElementById("btn");
+        const result = document.getElementById("result");
+        let startTime = new Date()
+        let endTime = new Date()
+        gioco = true;
+
+
+        let elapsedTime = 0;
+        let intervalID = setInterval(() => {
+            if (!gioco) return; // Stop checking if the game is over
+
+            elapsedTime += 100; // Increment elapsed time by 100ms each interval
+
+            if (elapsedTime >= tempoRandomizzato) {
+                bottone.classList.remove("redTheme", "yellowTheme");
+                bottone.classList.add("greenTheme");
+                bottone.value = "Clicca!";
+                startTime = Date.now(); // Record start time
+                clearInterval(intervalID); // Stop the interval when button turns green
+            } else if (elapsedTime >= tempoMeta) {
+                bottone.classList.remove("redTheme");
+                bottone.classList.add("yellowTheme");
+            }
+        }, 100); // controllo ogni 100 ms
+
+
+        let timeout = setTimeout(() => {
+            if (elapsedTime >= tempoRandomizzato){
+
+            }
+
+            if (gioco) {
+                bottone.classList.add("greenTheme");
+                startTime = Date.now();
+            }
+        }, tempoRandomizzato);
+        
+
+        bottone.addEventListener("click", () => {
+            while (gioco === true){   
+                if (bottone.classList.contains("greenTheme")) {
+                    endTime = Date.now();
+                    const reactionTime = endTime - startTime; // Calculate time difference
+                    const reactionTimeSeconds = reactionTime/1000
+                    result.textContent = `Il tuo tempo di reazione è : ${reactionTime} ms`;
+                    gioco = false
+                } 
+                else {
+                    clearTimeout(timeout);
+                    result.textContent = "Hai cliccato troppo presto! Ricarica la pagina per riprovare.";
+                    gioco = false
+                }
+            }
+        });
+            
+    </script>
+</body>
+</html>
