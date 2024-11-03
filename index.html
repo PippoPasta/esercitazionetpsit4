@@ -33,16 +33,16 @@
 
         let elapsedTime = 0;
         let intervalID = setInterval(() => {
-            if (!gioco) return; // Stop checking if the game is over
+            if (!gioco) return; // Smette di controllare se il gioco è terminato
 
-            elapsedTime += 100; // Increment elapsed time by 100ms each interval
+            elapsedTime += 100; // Incrementa il tempo di 100 ms
 
             if (elapsedTime >= tempoRandomizzato) {
                 bottone.classList.remove("redTheme", "yellowTheme");
                 bottone.classList.add("greenTheme");
                 bottone.value = "Clicca!";
-                startTime = Date.now(); // Record start time
-                clearInterval(intervalID); // Stop the interval when button turns green
+                startTime = Date.now(); // Registra il tempo
+                clearInterval(intervalID); // Ferma l'intervallo quando diventa
             } else if (elapsedTime >= tempoMeta) {
                 bottone.classList.remove("redTheme");
                 bottone.classList.add("yellowTheme");
@@ -66,7 +66,7 @@
             while (gioco === true){   
                 if (bottone.classList.contains("greenTheme")) {
                     endTime = Date.now();
-                    const reactionTime = endTime - startTime; // Calculate time difference
+                    const reactionTime = endTime - startTime; // Calcola tempo di differenza
                     const reactionTimeSeconds = reactionTime/1000
                     result.textContent = `Il tuo tempo di reazione è : ${reactionTime} ms`;
                     gioco = false
