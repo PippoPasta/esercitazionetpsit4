@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Jaro:opsz@6..72&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Jaro:opsz@6..72&family=Rowdies:wght@300;400;700&display=swap');
+
+
 #btn{
     font-size: 50px;
     text-align: center;
     margin-top: 25%;
+    height: 200px;
+    width: 200px;
+    margin-left: 550px;
+    margin-top: 10%;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 
@@ -15,4 +26,31 @@
 
 .yellowTheme{
     background-color: yellow;
+}
+
+
+.testo{
+    margin-top: 30px;
+    text-align: center;
+    font-family: Jaro;
+    font-size: 50px;
+}
+
+.titolo{
+    text-align: center;
+    font-size: 50px;
+    font-family: Rowdies;
+}
+
+.backgroundcolor{
+    background-color: gray;
+
+}
+
+
+
+#result{
+    font-family: Archivo Black;
+    margin-top: 50px;
+    font-size: 30px;
 }
