@@ -31,6 +31,7 @@
         gioco = true;
 
 
+        
         let elapsedTime = 0;
         let intervalID = setInterval(() => {
             if (!gioco) return; // Smette di controllare se il gioco è terminato
@@ -41,6 +42,7 @@
                 bottone.classList.remove("redTheme", "yellowTheme");
                 bottone.classList.add("greenTheme");
                 bottone.value = "Clicca!";
+                bottone.value = "Cliccami!";
                 startTime = Date.now(); // Registra il tempo
                 clearInterval(intervalID); // Ferma l'intervallo quando diventa
             } else if (elapsedTime >= tempoMeta) {
